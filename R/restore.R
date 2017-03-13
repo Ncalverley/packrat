@@ -620,6 +620,7 @@ restoreImpl <- function(project,
     )
   actions <- diff(installedPkgRecords, pkgRecords)
   actions[names(actions) %in% pkgsToIgnore] <- NA
+  actions[names(actions) == "XML"] <- NA
   restartNeeded <- FALSE
 
   mustConfirm <- any(c('downgrade', 'remove', 'crossgrade') %in% actions)
