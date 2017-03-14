@@ -388,6 +388,8 @@ restore <- function(project = NULL,
     # dirty and NOT represented in the list of packages to install (this is akin
     # to "untracked" files in git).
     pkgsToIgnore <- dirtyPackageNames[!dirtyPackageNames %in% pkgNames(packages)]
+    # Manually add packages that are currently problematic
+    pkgsToIgnore <- c(pkgsToIgnore, "curl")
   }
 
   # Configure repos globally to avoid explicitly passing the repos list to all
